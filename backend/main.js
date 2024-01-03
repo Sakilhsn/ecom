@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 // middleware
 const middleware = (req,res,next)=>{
-    console.log('hello my middleware');
+    console.log('hello this is my middleware');
     next()
 }
 
