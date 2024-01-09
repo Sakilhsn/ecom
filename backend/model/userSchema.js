@@ -34,5 +34,5 @@ cpassword: {
 
 })
 
-const User = mongoose.model('USER',userSchema);
+const User = mongoose.model('user',userSchema,);
 module.exports = User;
