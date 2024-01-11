@@ -34,19 +34,26 @@ router.post('/register', async (req,res) =>{
             return res.status(422).json ({error: " please filled the field first "});
        }
     
-         try {
+          try {
           const userExist =await User.findOne({email:email}); 
 
             if(userExist) {
             return res.status(422).json ({error: " Email Alredy Exist "});
-       }  
+       }  else if(password!= cpassword){
+        return res.status(422).json ({error: "password doesn't match, check again "});
 
-       const user =  new User ({ name , email, work , phone, password, cpassword });
+       } else{
+        const user =  new User ({ name , email, work , phone, password, cpassword });
+
        const userResgister = await user.save();
 
        if (userResgister){
         return res.status(201).json({message: " Email sucessfully registered "});
        }
+
+       }
+
+       
        
 
         }catch(err){
