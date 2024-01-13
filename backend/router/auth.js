@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const express =  require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
@@ -74,6 +75,7 @@ router.post('/register', async (req,res) =>{
 
 router.post('/signin', async (req,res) => {
  try{
+
     const {email, password} = req.body;
      
     if (!email || !password) {
@@ -85,6 +87,10 @@ router.post('/signin', async (req,res) => {
       
       if(userlogin){
               const isMatch = await bcrypt.compare(password,userlogin.password);
+
+               const token = await userlogin.generateAuthToken();
+              console.log(token);
+
         if(!isMatch){
            res.status(400).json({error:" invaild password"});
         } else{
