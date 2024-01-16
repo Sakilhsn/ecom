@@ -90,6 +90,10 @@ router.post('/signin', async (req,res) => {
 
                const token = await userlogin.generateAuthToken();
               console.log(token);
+              res.cookie("jwttoken", token, {
+                expires: new Date(Date.now()+ 25892000000),
+                httpOnly:true
+              });
 
         if(!isMatch){
            res.status(400).json({error:" invaild password"});
