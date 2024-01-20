@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import {Route} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home" ;
 import About from "./components/About";
-import Login from "./components/Login";
 import Contact from "./components/Contact";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 
@@ -12,22 +12,22 @@ const App = () => {
   return (
     <>
        <Navbar/>
-       <Route path= "/">
+       <Route path exact= "/">
            <Home/>
        </Route>
 
-       <Route  path= "/About">
+       <Route  path= "/about">
            <About/>
        </Route>
-       <Route  path= "/Contact">
-           <Contact/>
+       <Route  path= "/contact">
+           <Contact />
        </Route>
 
-       <Route  path= "/Login">
+       <Route  path= "/login">
            <Login/>
        </Route>
 
-       <Route  path= "/Singup">
+       <Route  path= "/singup">
            <Signup/>
        </Route>
         </>

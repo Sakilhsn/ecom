@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css' ;
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -15,7 +16,7 @@ const Navbar = () => {
           <a class="nav-link " href="/">Home  <span class ="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/About">About</a>
+          <NavLink class="nav-link" href="/About">About</NavLink>
         </li>
 
         <li class="nav-item">
