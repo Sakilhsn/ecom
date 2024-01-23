@@ -1,11 +1,11 @@
 import React from 'react'
 import signpic from "../Images/logo1.png";
+import { NavLink } from 'react-router-dom';
 
 const Signup = () => {
   return (
     <>
     <section className='signup'>
-    <img src={signpic} alt='signpic'/> 
     <div className='container mt-5'>
         <div className='signup-content'>
           <div className='signup-form'>
@@ -55,8 +55,19 @@ const Signup = () => {
               <input type='text' name='cpassword' id='cpassword' autoComplete='off' placeholder='Write your cpassword'></input>
 
             </div>
-            </form>
+
+            <div className='form-group form button' >
+              <input type='submit' name='signup' id='signup' className='form-submit'
+              value="Register"/>
       
+            </div>
+            </form>
+            <div className='signup-image' >
+              <figure>
+            <img src={signpic} alt='Register'/> 
+            </figure>
+            <NavLink to ='/login' className='signup-image-link'>I am already register </NavLink>
+            </div>
 
           </div>
 
