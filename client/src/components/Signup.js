@@ -62,6 +62,7 @@ const Signup = () => {
       
             </div>
             </form>
+            </div>
             <div className='signup-image' >
               <figure>
             <img src={signpic} alt='Register'/> 
@@ -69,7 +70,7 @@ const Signup = () => {
             <NavLink to ='/login' className='signup-image-link'>I am already register </NavLink>
             </div>
 
-          </div>
+         
 
 
         </div>
