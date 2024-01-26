@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Errorpage from "./components/Errorpage";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/login" element={<Login/>} />
                 <Route path="/signup" element={<Signup/>} />
                 <Route path="/" element={<Home/>} />
+                <Route path="/errorpage" element={<Errorpage/>}/>
         
         
             </Routes>
