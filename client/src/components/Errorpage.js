@@ -14,7 +14,7 @@ export const Errorpage = () => {
     </div>
 
     <p>
-        <NavLink to="/">Go Back To HomePage</NavLink>
+        <NavLink to="/*">Go Back To HomePage</NavLink>
     </p>
 
 </> 

@@ -8,7 +8,7 @@ const Navbar = () => {
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{justifyContent:'space-between'}}>
     <NavLink className="navbar-brand" to="#">
-      <img src={logo} alt='logo'/>
+      <img src={logo} alt='logo' width={100}/>
     </NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
