@@ -28,16 +28,18 @@ app.get('/', (req,res)=> {
 app.get('/contact', (req,res)=> {
     res.send ('Hello contact the world form the server');
 });
-app.get('/about', middleware,(req,res)=> {
-    console.log('hello this is middleware');
 
-    res.send ('Hello about the world form the server');
-});
+// app.get('/about', middleware,(req,res)=> {
+//     console.log('hello this is middleware');
+
+//     res.send ('Hello about the world form the server');
+// });
+
 app.get('/login', (req,res)=> {
     res.send ('Hello world form the server in login');
 });
 
 
 app.listen(PORT,()=> {
-    console.log(' server is running at port number  ${PORT}');
+    console.log(' server is running at port number  4000');
 });

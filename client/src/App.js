@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -20,7 +21,7 @@ const App = () => {
                 <Route path="/login" element={<Login/>} />
                 <Route path="/signup" element={<Signup/>} />
                 <Route path="/" element={<Home/>} />
-                <Route path="/errorpage" element={<Errorpage/>}/>
+                <Route path="/*" element={<Errorpage/>}/>
         
         
             </Routes>

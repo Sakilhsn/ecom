@@ -1,8 +1,44 @@
-import React from 'react'
+import React , {useState} from 'react';
 import loginpic from '../Images/logo4.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink , useNavigate} from 'react-router-dom';
 
 const Login = () => {
+
+  const navigate =useNavigate();
+
+const [email, setEmail] = useState('');
+const [password,setPassword]=useState('');
+
+const loginUser =async (e) => {
+  e.preventDefault();
+
+  const res = await fetch('/signin',{
+    method :"POST",
+    headers :{
+      "Content-Type": "application/json"
+
+    }, 
+    body:JSON.stringify({
+      email,
+      password
+    })
+
+
+  });
+  const data = res.json();
+
+  if(data.status === 400 || !data){
+    window.alert("Invalid credentials");
+  }else{
+    window.alert("login sucessfull");
+    navigate('/');
+  }
+
+  
+
+}
+      
+
   return (
   <>
    <section className='sign-in'>
@@ -18,28 +54,37 @@ const Login = () => {
 
           <div className='signup-form'>
             <h2 className='form-title'> Sign In </h2>
-            <form className='register-form' id='register-form'> 
+            <form method= 'POST' className='register-form' id='register-form'> 
                
             <div className='form-group'>
                  <label htmlFor='email'>
-               <i class="zmdi zmdi-email material-icons-name"></i>
+               <i className="zmdi zmdi-email material-icons-name"></i>
               </label>
-              <input type='email' name='email' id='email' autoComplete='off' placeholder='Write your email'></input>
+              <input type='email' name='email' id='email' autoComplete='off'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='Write your email'></input>
         
             </div>
            
 
             <div className='form-group'>
                  <label htmlFor='password'>
-               <i class="zmdi zmdi-lock material-icons-name"></i>
+               <i className="zmdi zmdi-lock material-icons-name"></i>
               </label>
-              <input type='text' name='password' id='password' autoComplete='off' placeholder='Write your password'></input>
+              <input type='password' name='password' id='password' autoComplete='off' 
+              value={password}
+              onChange={(e) =>setPassword(e.target.value)}
+               placeholder='Write your password'></input>
 
             </div>
 
             <div className='form-group form button' >
               <input type='submit' name='signin' id='signin' className='form-submit'
-              value="Log In"/>
+              value="Log In"
+              onClick = {loginUser}
+              />
+              
       
             </div>
             </form>

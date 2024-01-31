@@ -6,7 +6,7 @@ export const Errorpage = () => {
 <> 
   <div id='notfound'>
     <div className='notfound'>
-        <div className='not found-404'>
+        <div className='notfound-404'>
             <h1>404</h1>
         </div>
         <h2> we are sorry ,page not found</h2>
@@ -14,7 +14,7 @@ export const Errorpage = () => {
     </div>
 
     <p>
-        <NavLink to="/*">Go Back To HomePage</NavLink>
+        <NavLink to="/"  className='backto-home'>Go Back To HomePage</NavLink>
     </p>
 
 </> 

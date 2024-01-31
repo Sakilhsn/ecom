@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const express =  require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
+const authenticate = require('../middleware/authenticate');
 
  const User =require("../model/userSchema");
 
@@ -75,6 +76,7 @@ router.post('/register', async (req,res) =>{
 
 router.post('/signin', async (req,res) => {
  try{
+   
 
     const {email, password} = req.body;
      
@@ -90,13 +92,14 @@ router.post('/signin', async (req,res) => {
 
                const token = await userlogin.generateAuthToken();
               console.log(token);
+
               res.cookie("jwttoken", token, {
                 expires: new Date(Date.now()+ 25892000000),
                 httpOnly:true
               });
 
         if(!isMatch){
-           res.status(400).json({error:" invaild password"});
+           res.status(400).json({error:" invaild credentials"});
         } else{
            res.json({message:"User signin successfully"});
         }
@@ -112,6 +115,12 @@ router.post('/signin', async (req,res) => {
      console.log(err);
   }
 });
+// about us page
+router.get('/about',authenticate , (req,res)=> {
+    console.log('hello this is about');
+   
+       res.send ('Hello about the world form the server');
+ });
 
-// res.json({message: req.body});
+
 module.exports= router;

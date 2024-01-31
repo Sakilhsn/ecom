@@ -23,12 +23,12 @@ const About = () => {
                 <p className='profile-rating mt-5 mb-5'>RANKING :<span> 1/10</span></p>
 
 
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+                <ul className="nav nav-tabs" id="myTab" role="tablist">
+                  <li className="nav-item" role="presentation">
+                    <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
                   </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+                  <li className="nav-item" role="presentation">
+                    <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
                   </li>
 
                 </ul>
@@ -58,7 +58,7 @@ const About = () => {
             {/*right side url*/}
             <div className='col-md-8 pl-5 about-info'>
               <div className='tab-content profile-tab' id='myTabContent'>
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                   <div className='row'>
                     <div className='col-md-6'>
