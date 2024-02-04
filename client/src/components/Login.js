@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState} from 'react'
 import loginpic from '../Images/logo4.png';
 import { NavLink , useNavigate} from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const loginUser =async (e) => {
   });
   const data = res.json();
 
-  if(data.status === 400 || !data){
+  if(res.status === 400 || !data){
     window.alert("Invalid credentials");
   }else{
     window.alert("login sucessfull");

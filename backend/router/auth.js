@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
 const express =  require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 const authenticate = require('../middleware/authenticate');
+
+require ('../db/conn');
 
  const User =require("../model/userSchema");
 
@@ -34,7 +36,7 @@ router.get('/',(req,res) => {
 router.post('/register', async (req,res) =>{
       const { name , email, work , phone, password, cpassword } = req.body;
        if (!name || !email ||!work|| !phone ||  !password || !cpassword ) {
-            return res.status(422).json ({error: " please filled the field first "});
+            return res.status(422).json ({error: " please fill the field first "});
        }
     
           try {
@@ -81,11 +83,12 @@ router.post('/signin', async (req,res) => {
     const {email, password} = req.body;
      
     if (!email || !password) {
-      return  res.status(400).json({error: "please filled the field"})
+      return  res.status(400).json({error: "please fill the field"})
       }
       
       const userlogin = await User.findOne({email:email});
-
+      
+      
       
       if(userlogin){
               const isMatch = await bcrypt.compare(password,userlogin.password);
@@ -104,22 +107,19 @@ router.post('/signin', async (req,res) => {
            res.json({message:"User signin successfully"});
         }
         }else{
-          res.json({error:"invalid email"});
+          res.status(400).json({error:"invalid email"});
         }
 
       
-      
-
-
   }catch (err) {
      console.log(err);
   }
 });
+
 // about us page
-router.get('/about',authenticate , (req,res)=> {
+router.get('/about', authenticate , (req, res)=> {
     console.log('hello this is about');
-   
-       res.send ('Hello about the world form the server');
+    res.send(req.rootUser);
  });
 
 

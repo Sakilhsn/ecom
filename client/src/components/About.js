@@ -1,11 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import sakilpic from "../Images/lokgo3.png";
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+
+
+
+  const navigate =useNavigate();
+
+  const callAboutPage = async () => {
+    try {
+      const res = await fetch('/about', {
+        method: "GET",
+        Headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        throw error;
+      }
+
+    } catch (err) {
+      console.log(err);
+      navigate('/login');
+
+    }
+  }
+  
+  useEffect(()=>{
+    callAboutPage();
+  }, []);
+
+
   return (
     <>
       <div className='container emp-profile'>
-        <form method=" ">
+        <form method="GET">
           <div className="row">
             <div className="col-md-4">
               <div className='profile-img'>
@@ -104,7 +141,7 @@ const About = () => {
                   </div>
 
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                   <div className='row'>
                     <div className='col-md-6'>

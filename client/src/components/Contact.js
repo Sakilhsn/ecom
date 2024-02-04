@@ -75,9 +75,9 @@ const Contact = () => {
             </div>
             <form id='contact-form'>
               <div className='contact-form-name d-flex justify-content-start align-items-center '>
-              <input type='text' name='name' id='contact-form-name' autoComplete='off' placeholder='Write your name' required="true" ></input>
-              <input type='text' name='email' id='contact-form-email' autoComplete='off' placeholder='Write your email' required="true"></input>
-              <input type='number' name='phone' id='contact-form-number' autoComplete='off' placeholder='Write your number' required="true"></input>
+              <input type='text' name='name' id='contact-form-name' autoComplete='off' placeholder='Write your name' required={true}></input>
+              <input type='text' name='email' id='contact-form-email' autoComplete='off' placeholder='Write your email' required={true}></input>
+              <input type='number' name='phone' id='contact-form-number' autoComplete='off' placeholder='Write your number' required={true}></input>
               </div>
               <div className='contact-form-text mt-4'>
                 <textarea className='text-field contact-form-message' placeholder='Message' cols='74' rows='10'>
