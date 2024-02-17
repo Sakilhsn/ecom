@@ -17,9 +17,9 @@ app.use(require('./router/auth'));
 
 const PORT=process.env.PORT;
 
-app.get('/contact', (req,res)=> {
-    res.send ('Hello contact the world form the server');
-});
+// app.get('/contact', (req,res)=> {
+//     res.send ('Hello contact the world form the server');
+// });
 
 // app.get('/about', middleware,(req,res)=> {
 //     console.log('hello this is middleware');
