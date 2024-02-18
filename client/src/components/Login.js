@@ -1,8 +1,12 @@
-import React , {useState} from 'react'
+import React , { useState ,useContext} from 'react';
 import loginpic from '../Images/logo4.png';
 import { NavLink , useNavigate} from 'react-router-dom';
+import { UserContext } from '../App';
 
 const Login = () => {
+
+const {state,dispatch} =  useContext(UserContext);
+
 
   const navigate =useNavigate();
 
@@ -30,6 +34,7 @@ const loginUser =async (e) => {
   if(res.status === 400 || !data){
     window.alert("Invalid credentials");
   }else{
+    dispatch({type:"USER",payload:true})
     window.alert("login sucessfull");
     navigate('/');
   }

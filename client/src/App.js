@@ -11,17 +11,18 @@ import Signup from "./components/Signup";
 import Errorpage from "./components/Errorpage";
 import Logout from "./components/Logout";
 
-
+import { initialState, reducer } from '../src/reducer/UseReducer';
 
 
 // 1: contextAPI 
-export const Context = createContext();
+export const UserContext = createContext();
 
 
 const Routing = () => {
     return (
-        <BrowserRouter basename="/">
+       
             <Routes>
+                
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
@@ -30,25 +31,29 @@ const Routing = () => {
                 <Route path="/*" element={<Errorpage />} />
                 <Route path="/logout" element={<Logout />} />
 
-
+ 
             </Routes>
-        </BrowserRouter>
+          
+       
 
     )
 }
 
 const App = () => {
-    const [state, dispatch] = useReducer(reducer, initialState)
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
     return (
 
 
-        <>
-            <UserContext.Provider value={state, dispatch}}>
-
-            <Navbar />
+         <>
+            <UserContext.Provider value={{state, dispatch}}>
+           <BrowserRouter basename="/">
+           <Navbar />
             <Routing />
-
-        </UserContext.Provider >
+           </BrowserRouter>
+        </UserContext.Provider > 
+        
         </>
             )
         
